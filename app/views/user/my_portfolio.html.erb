@@ -20,3 +20,11 @@
   <% end %>
 
 </div>
+
+<% if @stock %>
+<div class="well">
+  <strong>Symbol:</strong><%= @stock.ticker %>
+  <strong>Name:</strong><%= @stock.name %>
+  <strong>Current Price:</strong> <%= @stock.last_price %>
+</div>
+<% end %>

@@ -1,2 +1,31 @@
-<h1>Stock#search</h1>
-<p>Find me in app/views/stock/search.html.erb</p>
+
+<h3>Search for Stocks</h3>
+
+<div id="stock-lookup">
+  <%= form_tag stock_search_path, method: :get, id: "stock-lookup-form" do %>
+    <div class="form-group row no-padding text-center col-md-12">
+      <div class="col-md-10">
+        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus:true, class: "form-control search-box input-lg" %>
+      </div>
+    </div>
+
+<div class="col-md-2">
+
+<%= button_tag(type: :submit, class: 'btn btn-lg btn-success') do %>
+<i class="fas fa-search"></i> Look up a stock
+<% end %>
+</div>
+
+  <% end %>
+
+</div>
+
+<br><br><br><br><br><br><br><br>
+
+<% if @stock %>
+<div class="well">
+  <strong>Symbol: </strong><%= @stock.ticker %>
+  <strong>Name: </strong><%= @stock.name %>
+  <strong>Current Price: </strong> $<%= @stock.last_price %>
+</div>
+<% end %>
